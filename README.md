@@ -1,2 +1,1 @@
-# Proyect_ZERO
-PyGame
+# juego_pygame
