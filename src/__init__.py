@@ -1,1 +1,1 @@
-__all__= ["window", "Game"]
+__all__= ["Window", "Game"]
