@@ -3,8 +3,6 @@ import pygame
 
 import pygame
 
-class Sprite:
+class Sprite(pygame.sprite.Sprite):
     def __init__(self, src):
-        pygame.image.load(src).conver()
-
-
+        pygame.image.load(src).convert()
