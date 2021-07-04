@@ -13,5 +13,5 @@ class Sprite(pygame.sprite.Sprite):
         print(self.frames[0])
         self.x = x
         self.y = y
-        self.rect = self.image.subsurface(self.frames[frame]).get_rect()
-        window.blit(self.image.subsurface(self.frames[frame]), (self.x, self.y))
+        self.rect = self.image.subsurface(self.frames[0][frame]).get_rect()
+        window.blit(self.image.subsurface(self.frames[0][frame]), (self.x, self.y))
