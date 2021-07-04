@@ -28,4 +28,4 @@ class Game:
                 if event.type == pygame.QUIT:
                     flag = False
     def drawSprites(self):
-        self.player.setInWindow(self.screen1, 0, 0, 3)
+        self.player.setInWindow(self.screen1, 0, 0, 0)
