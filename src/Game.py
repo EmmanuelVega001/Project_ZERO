@@ -15,7 +15,9 @@ class Game:
 
         self.screen1 = pygame.display.set_mode(size)
 
-        pygame.display.set_caption("Juego del chino")
+        pygame.display.set_caption("Zero Demo")
+        self.icono=pygame.image.load("./src/media/icono.png")
+        pygame.display.set_icon(self.icono)
         self.drawSprites()
         flag = True
         

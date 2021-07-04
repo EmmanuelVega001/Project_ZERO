@@ -6,7 +6,7 @@ class Sprite(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.x = 0
         self.y = 0
-        self.image = pygame.transform.scale(pygame.image.load(src), (180, 180))
+        self.image = pygame.transform.scale(pygame.image.load(src), (280, 350))
         self.frames = []
         print("Sprite: " + src)
     def setInWindow(self, window, x, y, frame):
