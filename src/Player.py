@@ -7,7 +7,7 @@ class Player(Sprite):
     def __init__(self):
         Sprite.__init__(self, "./src/media/movimientosJugador/reposoDerecha.png")
         self.image = pygame.transform.scale(self.image, (85, 132))
-        print("Player")
+        #print("Player")
         self.speedy = 0
         self.speedx = 5
         self.isJumping = 0
@@ -143,7 +143,7 @@ class Player(Sprite):
         self.image = self.idleSprite[1]
         self.draw(window, self.x - self.speedx, self.y)
         self.image = self.walkLeftSprite[frame]
-        print("Izquierda frame: " + str(frame))
+        #print("Izquierda frame: " + str(frame))
         frame += 1
         self.direction = 1
         if frame == 4:
@@ -154,7 +154,7 @@ class Player(Sprite):
         self.image = self.idleSprite[0]
         self.draw(window, self.x + self.speedx, self.y)
         self.image = self.walkRightSprite[frame]
-        print("Derecha frame: " + str(frame))
+        #print("Derecha frame: " + str(frame))
         frame += 1
         self.direction = 0
         if frame == 4:
@@ -165,17 +165,17 @@ class Player(Sprite):
         self.image = self.idleSprite[self.direction]
         self.draw(window, self.x, self.y + self.speedy)
         self.image = self.jumpSprites[self.direction][frame]
-        print("Salto frame: " + str(frame))
+        #print("Salto frame: " + str(frame))
         frame += 1
         if frame == 4:
             frame = 0
         return frame
 
-    def movePlayer(self, x, y):
+    def movePlayer(self):
         self.x = 5
         self.y = 410
     def movePlayer2(self):
-        self.x=1100
+        self.x=700
         self.y=410
 
 

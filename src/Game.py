@@ -10,13 +10,14 @@ class Game:
         print("Game")
         self.player = Player()
         self.x=0
+        self.contador=1
         self.RELOJ=pygame.time.Clock()
         self.createWindow()
 
     def createWindow(self):
         pygame.init()
 
-        size = 1200, 600
+        size = 800, 600
 
         self.screen1 = pygame.display.set_mode(size)
 
@@ -27,6 +28,7 @@ class Game:
         self.setSprites()
         self.frame = 0
         while flag:
+            
             self.drawSprites()
             self.recargarPantalla()
             pygame.time.delay(60)
@@ -41,15 +43,25 @@ class Game:
                     self.player.image = self.player.idleSprite[self.player.direction]
 
     def setSprites(self):
-        self.background = Sprite("./src/media/fondo-lejano.png")
+        self.background = Sprite("./src/media/fondo1.png")
+        self.bg = Sprite("./src/media/fondo2.png")#fondo dos
         self.highGrass = Sprite("./src/media/pasto-alto.png")
         self.arbol1=Sprite("./src/media/arbol1.png")
         self.background.draw(self.screen1, 0, 0)
+        
         self.arbol1.draw(self.screen1,180,50)
-        self.player.draw(self.screen1, 180, 410)
+        self.player.draw(self.screen1, 10, 410)
         self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,600))
         #self.highGrass.draw(self.screen1, 0, 0)
 
+    def setSprites2(self):
+        self.background = Sprite("./src/media/fondo2.png")
+       # self.bg = Sprite("./src/media/fondo2.png")#fondo dos
+        self.highGrass = Sprite("./src/media/pasto-alto.png")
+        self.background.draw(self.screen1, 0, 0)
+        #self.player.draw(self.screen1, 790, 410)
+        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,600))
+        #self.highGrass.draw(self.screen1, 0, 0)
 
     def recargarPantalla(self):
         #para hacer que el fondo se "mueva"
@@ -70,16 +82,38 @@ class Game:
         self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
         
+    def moveMap(self):
+        if self.contador%2==0:
+            self.setSprites()
+            if (self.contador%2!=0):
+                self.player.draw(self.screen1,10,410)
+            else:
+                self.player.draw(self.screen1,790,410)
+            print ("moveMapPrueba")
+        else:
+            self.setSprites2()
+            self.player.draw(self.screen1,10,410)
+
     def moveControls(self, event):
         if event.key == pygame.K_d:
             self.frame = self.player.moveRight(self.screen1, self.frame)
-            if (self.player.x > 1200):
-                self.player.movePlayer(180, 410)
+            if (self.player.x > 800):
+                self.moveMap()
+                self.contador+=1
+                #self.player.movePlayer()
+                #self.setSprites2()
+               
+                print("Contador: ",self.contador)
            
         elif event.key == pygame.K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
             if (self.player.x<5):
-                self.player.movePlayer2()
+                self.moveMap()
+                self.contador-=1
+                #self.player.movePlayer2()
+                #self.setSprites()
+                
+                print("Contador: ",self.contador)
         elif  event.key == pygame.K_UP or event.key == pygame.K_w:
             self.frame = self.player.jump(self.screen1, self.frame)
             
