@@ -4,6 +4,7 @@ from src.Player import Player
 import pygame
 from pygame.locals import *
 
+
 class Game:
     def __init__(self):
         print("Game")
@@ -41,16 +42,21 @@ class Game:
     def setSprites(self):
         self.background = Sprite("./src/media/fondo-lejano.png")
         self.highGrass = Sprite("./src/media/pasto-alto.png")
+        self.arbol1=Sprite("./src/media/arbol1.png")
         self.background.draw(self.screen1, 0, 0)
+        self.arbol1.draw(self.screen1,180,50)
         self.player.draw(self.screen1, 180, 410)
         self.highGrass.draw(self.screen1, 0, 0)
         
     def drawSprites(self):
         self.background.draw(self.screen1, self.background.x, self.background.y)
+        self.arbol1.draw(self.screen1, self.arbol1.x, self.arbol1.y)
         self.player.draw(self.screen1, self.player.x, self.player.y)
         self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
+        
     def moveControls(self, event):
         if event.key == K_d:
             self.frame = self.player.moveRight(self.screen1, self.frame)
         elif event.key == K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
+
