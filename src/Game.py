@@ -29,7 +29,7 @@ class Game:
             pygame.display.update()
             pygame.time.delay(60)
             pygame.display.flip()
-            pygame.key.set_repeat(50, 50)
+            pygame.key.set_repeat(60, 30)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     flag = False
@@ -54,3 +54,5 @@ class Game:
             self.frame = self.player.moveRight(self.screen1, self.frame)
         elif event.key == K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
+        elif event.key == K_SPACE:
+            self.frame = self.player.jump(self.screen1, self.frame)

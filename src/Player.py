@@ -8,38 +8,126 @@ class Player(Sprite):
         Sprite.__init__(self, "./src/media/movimientosJugador/reposoDerecha.png")
         self.image = pygame.transform.scale(self.image, (85, 132))
         print("Player")
+        self.speedy = 0
         self.speedx = 5
+        self.isJumping = 0
         self.idleSprite = [
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/reposoDerecha.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/reposoIzquierda.png"), (85, 132)),
+            pygame.transform.scale(
+                pygame.image.load("./src/media/movimientosJugador/reposoDerecha.png"),
+                (85, 132),
+            ),
+            pygame.transform.scale(
+                pygame.image.load("./src/media/movimientosJugador/reposoIzquierda.png"),
+                (85, 132),
+            ),
         ]
 
         self.walkRightSprite = [
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/corriendoDerecha1.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/corriendoDerecha2.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/corriendoDerecha3.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/corriendoDerecha4.png"), (85, 132)),
+            pygame.transform.scale(
+                pygame.image.load(
+                    "./src/media/movimientosJugador/corriendoDerecha1.png"
+                ),
+                (85, 132),
+            ),
+            pygame.transform.scale(
+                pygame.image.load(
+                    "./src/media/movimientosJugador/corriendoDerecha2.png"
+                ),
+                (85, 132),
+            ),
+            pygame.transform.scale(
+                pygame.image.load(
+                    "./src/media/movimientosJugador/corriendoDerecha3.png"
+                ),
+                (85, 132),
+            ),
+            pygame.transform.scale(
+                pygame.image.load(
+                    "./src/media/movimientosJugador/corriendoDerecha4.png"
+                ),
+                (85, 132),
+            ),
         ]
 
         self.walkLeftSprite = [
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/corriendoIzuierda1.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/corriendoIzquierda2.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/corriendoIzquierda3.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/corriendoIzquierda4.png"), (85, 132)),
+            pygame.transform.scale(
+                pygame.image.load(
+                    "./src/media/movimientosJugador/corriendoIzuierda1.png"
+                ),
+                (85, 132),
+            ),
+            pygame.transform.scale(
+                pygame.image.load(
+                    "./src/media/movimientosJugador/corriendoIzquierda2.png"
+                ),
+                (85, 132),
+            ),
+            pygame.transform.scale(
+                pygame.image.load(
+                    "./src/media/movimientosJugador/corriendoIzquierda3.png"
+                ),
+                (85, 132),
+            ),
+            pygame.transform.scale(
+                pygame.image.load(
+                    "./src/media/movimientosJugador/corriendoIzquierda4.png"
+                ),
+                (85, 132),
+            ),
         ]
-
-        self.jumpRightSprite = [
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/saltoDerecha1.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/saltoDerecha2.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/saltoDerecha3.png"), (85, 132)),
-            pygame.transform.scale(pygame.image.load("./src/media/movimientosJugador/saltoDerecha4.png"), (85, 132)),
-        ]
-
-        self.jumpLeftSprite = [
-            pygame.image.load("./src/media/movimientosJugador/saltoIzquierda1.png"),
-            pygame.image.load("./src/media/movimientosJugador/saltoIzquierda2.png"),
-            pygame.image.load("./src/media/movimientosJugador/saltoIzquierda3.png"),
-            pygame.image.load("./src/media/movimientosJugador/saltoIzquierda4.png"),
+        self.jumpSprites = [
+            [
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "./src/media/movimientosJugador/saltoDerecha1.png"
+                    ),
+                    (85, 132),
+                ),
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "./src/media/movimientosJugador/saltoDerecha2.png"
+                    ),
+                    (85, 132),
+                ),
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "./src/media/movimientosJugador/saltoDerecha3.png"
+                    ),
+                    (85, 132),
+                ),
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "./src/media/movimientosJugador/saltoDerecha4.png"
+                    ),
+                    (85, 132),
+                ),
+            ],
+            [
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "./src/media/movimientosJugador/saltoIzquierda1.png"
+                    ),
+                    (85, 132),
+                ),
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "./src/media/movimientosJugador/saltoIzquierda2.png"
+                    ),
+                    (85, 132),
+                ),
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "./src/media/movimientosJugador/saltoIzquierda3.png"
+                    ),
+                    (85, 132),
+                ),
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "./src/media/movimientosJugador/saltoIzquierda4.png"
+                    ),
+                    (85, 132),
+                ),
+            ],
         ]
         self.direction = 0
         # self.frames = [
@@ -61,15 +149,25 @@ class Player(Sprite):
         if frame == 4:
             frame = 0
         return frame
+
     def moveRight(self, window, frame):
         self.image = self.idleSprite[0]
         self.draw(window, self.x + self.speedx, self.y)
         self.image = self.walkRightSprite[frame]
-        print("Derecha frame: "+ str(frame))
+        print("Derecha frame: " + str(frame))
         frame += 1
         self.direction = 0
         if frame == 4:
             frame = 0
         return frame
-    def jump(self):
-        pass
+
+    def jump(self, window, frame):
+        self.image = self.idleSprite[self.direction]
+        self.draw(window, self.x, self.y + self.speedy)
+        self.image = self.jumpSprites[self.direction][frame]
+        print("Salto frame: " + str(frame))
+        frame += 1
+        if frame == 4:
+            frame = 0
+        return frame
+
