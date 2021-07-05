@@ -14,7 +14,7 @@ class Game:
     def createWindow(self):
         pygame.init()
 
-        size = 800, 600
+        size = 1600, 600
 
         self.screen1 = pygame.display.set_mode(size)
 
@@ -43,6 +43,7 @@ class Game:
         self.highGrass = Sprite("./src/media/pasto-alto.png")
         self.background.draw(self.screen1, 0, 0)
         self.player.draw(self.screen1, 180, 410)
+        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,600))
         self.highGrass.draw(self.screen1, 0, 0)
         
     def drawSprites(self):
