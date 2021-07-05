@@ -49,8 +49,11 @@ class Game:
         self.background.draw(self.screen1, self.background.x, self.background.y)
         self.player.draw(self.screen1, self.player.x, self.player.y)
         self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
+        
     def moveControls(self, event):
-        if event.key == K_d:
+        if event.key == pygame.K_d:
             self.frame = self.player.moveRight(self.screen1, self.frame)
-        elif event.key == K_a:
+        elif event.key == pygame.K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
+        elif  event.key == pygame.K_UP or event.key == pygame.K_w:
+            self.frame = self.player.jump(self.screen1, self.frame)
