@@ -29,7 +29,7 @@ class Game:
             pygame.display.update()
             pygame.time.delay(60)
             pygame.display.flip()
-            pygame.key.set_repeat(50, 50)
+            pygame.key.set_repeat(60, 30)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     flag = False

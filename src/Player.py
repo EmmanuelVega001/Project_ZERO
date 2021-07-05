@@ -154,7 +154,7 @@ class Player(Sprite):
         self.image = self.idleSprite[0]
         self.draw(window, self.x + self.speedx, self.y)
         self.image = self.walkRightSprite[frame]
-        print("Derecha frame: "+ str(frame))
+        print("Derecha frame: " + str(frame))
         frame += 1
         self.direction = 0
         if frame == 4:
@@ -171,5 +171,3 @@ class Player(Sprite):
             frame = 0
         return frame
 
-
-        pass
