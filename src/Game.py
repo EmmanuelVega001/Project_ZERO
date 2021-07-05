@@ -67,20 +67,15 @@ class Game:
         self.background.draw(self.screen1, self.background.x, self.background.y)
         self.arbol1.draw(self.screen1, self.arbol1.x, self.arbol1.y)
         self.player.draw(self.screen1, self.player.x, self.player.y)
-<<<<<<< HEAD
         self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
-=======
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
->>>>>>> 801464dbc0468fb55eaf7eef3fefb92c5fb42eeb
         
     def moveControls(self, event):
         if event.key == pygame.K_d:
             self.frame = self.player.moveRight(self.screen1, self.frame)
-<<<<<<< HEAD
         elif event.key == K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
 
-=======
             if (self.player.x > 1200):
                 self.player.movePlayer(180, 410)
            
@@ -91,4 +86,4 @@ class Game:
         elif  event.key == pygame.K_UP or event.key == pygame.K_w:
             self.frame = self.player.jump(self.screen1, self.frame)
             
->>>>>>> 801464dbc0468fb55eaf7eef3fefb92c5fb42eeb
+
