@@ -177,3 +177,8 @@ class Player(Sprite):
     def movePlayer2(self):
         self.x=1100
         self.y=410
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main

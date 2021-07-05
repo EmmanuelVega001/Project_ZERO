@@ -1,5 +1,5 @@
-from src import *
+from src.Game import Game
 
 if __name__ == "__main__":
-    print("Juli joto pero en la branch de mani")
-    g = Game.Game()
+    print("Main")
+    g = Game()
