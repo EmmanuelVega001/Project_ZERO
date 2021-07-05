@@ -73,9 +73,6 @@ class Game:
     def moveControls(self, event):
         if event.key == pygame.K_d:
             self.frame = self.player.moveRight(self.screen1, self.frame)
-        elif event.key == K_a:
-            self.frame = self.player.moveLeft(self.screen1, self.frame)
-
             if (self.player.x > 1200):
                 self.player.movePlayer(180, 410)
            
