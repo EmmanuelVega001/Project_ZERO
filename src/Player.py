@@ -172,8 +172,10 @@ class Player(Sprite):
         return frame
 
     def movePlayer(self, x, y):
-        self.x = 180
+        self.x = 5
         self.y = 410
-
+    def movePlayer2(self):
+        self.x=1100
+        self.y=410
 
 

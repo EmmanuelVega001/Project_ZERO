@@ -8,13 +8,14 @@ class Game:
     def __init__(self):
         print("Game")
         self.player = Player()
-
+        self.x=0
+        self.RELOJ=pygame.time.Clock()
         self.createWindow()
 
     def createWindow(self):
         pygame.init()
 
-        size = 1600, 600
+        size = 1200, 600
 
         self.screen1 = pygame.display.set_mode(size)
 
@@ -26,7 +27,7 @@ class Game:
         self.frame = 0
         while flag:
             self.drawSprites()
-            pygame.display.update()
+            self.recargarPantalla()
             pygame.time.delay(60)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
@@ -44,20 +45,36 @@ class Game:
         self.background.draw(self.screen1, 0, 0)
         self.player.draw(self.screen1, 180, 410)
         self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,600))
-        self.highGrass.draw(self.screen1, 0, 0)
-        
+        #self.highGrass.draw(self.screen1, 0, 0)
+
+
+    def recargarPantalla(self):
+        #para hacer que el fondo se "mueva"
+        x_relativa=self.x % self.highGrass.image.get_rect().width
+        #self.screen1.blit(self.background.image,(x_relativa-self.background.image.get_rect().width,0))
+        self.screen1.blit(self.highGrass.image,(x_relativa-self.highGrass.image.get_rect().width,0))
+        if x_relativa-600:
+         #   self.screen1.blit(self.background.image,(x_relativa,0))
+            self.screen1.blit(self.highGrass.image,(x_relativa,0))
+           
+        self.x-=3
+        pygame.display.update()
+    
     def drawSprites(self):
         self.background.draw(self.screen1, self.background.x, self.background.y)
         self.player.draw(self.screen1, self.player.x, self.player.y)
-        self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
+        #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
         
     def moveControls(self, event):
         if event.key == pygame.K_d:
             self.frame = self.player.moveRight(self.screen1, self.frame)
-            if (self.player.x >= 1300):
+            if (self.player.x > 1200):
                 self.player.movePlayer(180, 410)
+           
         elif event.key == pygame.K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
+            if (self.player.x<5):
+                self.player.movePlayer2()
         elif  event.key == pygame.K_UP or event.key == pygame.K_w:
             self.frame = self.player.jump(self.screen1, self.frame)
             
