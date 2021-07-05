@@ -83,9 +83,9 @@ class Game:
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
         
     def moveMap(self):
-        if self.contador%2==0:
+        if self.contador==1:
             self.setSprites()
-            if (self.contador%2!=0):
+            if (self.contador==2):
                 self.player.draw(self.screen1,10,410)
             else:
                 self.player.draw(self.screen1,790,410)
@@ -98,8 +98,12 @@ class Game:
         if event.key == pygame.K_d:
             self.frame = self.player.moveRight(self.screen1, self.frame)
             if (self.player.x > 800):
-                self.moveMap()
                 self.contador+=1
+                if (self.contador>2):
+                    self.contador=1
+                else:
+                    self.contador+=1
+                self.moveMap()
                 #self.player.movePlayer()
                 #self.setSprites2()
                
@@ -108,8 +112,12 @@ class Game:
         elif event.key == pygame.K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
             if (self.player.x<5):
-                self.moveMap()
                 self.contador-=1
+                if (self.contador<=1):
+                    self.contador=1
+                else:
+                    self.contador-=1
+                self.moveMap()
                 #self.player.movePlayer2()
                 #self.setSprites()
                 
