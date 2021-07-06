@@ -17,7 +17,7 @@ class Game:
     def createWindow(self):
         pygame.init()
 
-        size = 800, 600
+        size = 1200, 500
 
         self.screen1 = pygame.display.set_mode(size)
 
@@ -43,15 +43,15 @@ class Game:
                     self.player.image = self.player.idleSprite[self.player.direction]
 
     def setSprites(self):
-        self.background = Sprite("./src/media/fondo1.png")
+        self.background = Sprite("./src/media/fondo-lejano.png")
         self.bg = Sprite("./src/media/fondo2.png")#fondo dos
         self.highGrass = Sprite("./src/media/pasto-alto.png")
         self.arbol1=Sprite("./src/media/arbol1.png")
         self.background.draw(self.screen1, 0, 0)
         
-        self.arbol1.draw(self.screen1,180,50)
-        self.player.draw(self.screen1, 10, 410)
-        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,600))
+        self.arbol1.draw(self.screen1,180,20)
+        self.player.draw(self.screen1, 10, 310)
+        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1200,500))
         #self.highGrass.draw(self.screen1, 0, 0)
 
     def setSprites2(self):
@@ -60,7 +60,7 @@ class Game:
         self.highGrass = Sprite("./src/media/pasto-alto.png")
         self.background.draw(self.screen1, 0, 0)
         #self.player.draw(self.screen1, 790, 410)
-        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,600))
+        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1200,450))
         #self.highGrass.draw(self.screen1, 0, 0)
 
     def recargarPantalla(self):
