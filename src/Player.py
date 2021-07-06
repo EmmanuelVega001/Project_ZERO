@@ -169,7 +169,26 @@ class Player(Sprite):
         frame += 1
         if frame == 4:
             frame = 0
+        if (self.up()==True or self.down()==False):
+            self.x+=5
+            self.y+=5
+        else:
+            self.x+=5
+            self.y-=25
+        print (self.y)
         return frame
+
+    def up(self):
+        bandera=False
+        if (self.y<=200):
+            bandera=True
+        return bandera
+    
+    def down(self):
+        bandera=False
+        if (self.y>=305):
+            bandera=True
+        return bandera
 
     def movePlayer(self):
         self.x = 5

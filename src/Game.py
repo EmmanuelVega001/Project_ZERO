@@ -49,7 +49,7 @@ class Game:
         self.arbol1=Sprite("./src/media/arbol1.png")
         self.background.draw(self.screen1, 0, 0)
         
-        self.arbol1.draw(self.screen1,180,20)
+        self.arbol1.draw(self.screen1,600,100)
         self.player.draw(self.screen1, 10, 310)
         self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1200,500))
         #self.highGrass.draw(self.screen1, 0, 0)
@@ -72,7 +72,7 @@ class Game:
          #   self.screen1.blit(self.background.image,(x_relativa,0))
             self.screen1.blit(self.highGrass.image,(x_relativa,0))
            
-        self.x-=3
+        self.x-=5
         pygame.display.update()
     
     def drawSprites(self):
@@ -103,7 +103,7 @@ class Game:
                     self.contador=1
                 else:
                     self.contador+=1
-                self.moveMap()
+                #self.moveMap()
                 #self.player.movePlayer()
                 #self.setSprites2()
                
@@ -117,7 +117,7 @@ class Game:
                     self.contador=1
                 else:
                     self.contador-=1
-                self.moveMap()
+                #self.moveMap()
                 #self.player.movePlayer2()
                 #self.setSprites()
                 
