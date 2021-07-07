@@ -42,7 +42,7 @@ class Game:
                     self.moveControls(event)
                    
                 elif event.type == pygame.KEYUP:
-                    if (event.key == pygame.K_UP or event.key == pygame.K_w):
+                    if (self.isJump==True):
                         self.downPlayer()
                     self.player.image = self.player.idleSprite[self.player.direction]
                     
@@ -89,11 +89,12 @@ class Game:
         
 
     def downPlayer(self):
-       
-        self.player.downing(self.screen1,self.frame)
         if self.player.x>=310:
             self.isJump=False
-        pygame.display.flip()
+        else:
+            self.isJump=True
+            self.player.downing(self.screen1,self.frame)
+            pygame.display.flip()
 
 
     def moveMap(self):

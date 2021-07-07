@@ -186,7 +186,7 @@ class Player(Sprite):
     def downing(self, window, frame):
         self.image = self.idleSprite[self.direction]
         self.draw(window, self.x, self.y +self.isJumping)
-        self.image = self.jumpSprites[self.direction][frame]
+        #self.image = self.jumpSprites[self.direction][frame]
         #print("Salto frame: " + str(frame))
         if(self.y>=310):
             self.isJumping=0
