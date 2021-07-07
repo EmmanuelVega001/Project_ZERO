@@ -1,16 +1,16 @@
 from src.Sprite import Sprite
 
 import pygame
-
-
 class Player(Sprite):
     def __init__(self):
         Sprite.__init__(self, "./src/media/movimientosJugador/reposoDerecha.png")
+        
         self.image = pygame.transform.scale(self.image, (85, 132))
         print("Player")
         self.speedy = 0
         self.speedx = 5
         self.isJumping = 0
+        self.shoot=False
         self.idleSprite = [
             pygame.transform.scale(
                 pygame.image.load("./src/media/movimientosJugador/reposoDerecha.png"),
