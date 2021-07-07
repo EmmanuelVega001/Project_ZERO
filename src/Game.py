@@ -10,6 +10,7 @@ class Game:
         print("Game")
         self.player = Player()
         self.x=0
+        self.isJump=False
         self.contador=1
         self.RELOJ=pygame.time.Clock()
         self.createWindow()
@@ -39,8 +40,12 @@ class Game:
                     flag = False
                 elif event.type == pygame.KEYDOWN:
                     self.moveControls(event)
+                   
                 elif event.type == pygame.KEYUP:
+                    if (event.key == pygame.K_UP or event.key == pygame.K_w):
+                        self.downPlayer()
                     self.player.image = self.player.idleSprite[self.player.direction]
+                    
 
     def setSprites(self):
         self.background = Sprite("./src/media/fondo-lejano.png")
@@ -82,6 +87,15 @@ class Game:
         self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
         
+
+    def downPlayer(self):
+       
+        self.player.downing(self.screen1,self.frame)
+        if self.player.x>=310:
+            self.isJump=False
+        pygame.display.flip()
+
+
     def moveMap(self):
         if self.contador==1:
             self.setSprites()
@@ -123,6 +137,8 @@ class Game:
                 
                 print("Contador: ",self.contador)
         elif  event.key == pygame.K_UP or event.key == pygame.K_w:
+            self.isJump=True
             self.frame = self.player.jump(self.screen1, self.frame)
+            
             
 

@@ -10,7 +10,7 @@ class Player(Sprite):
         #print("Player")
         self.speedy = 0
         self.speedx = 5
-        self.isJumping = 0
+        self.isJumping = 10
         self.idleSprite = [
             pygame.transform.scale(
                 pygame.image.load("./src/media/movimientosJugador/reposoDerecha.png"),
@@ -159,25 +159,40 @@ class Player(Sprite):
         self.direction = 0
         if frame == 4:
             frame = 0
+            
         return frame
 
     def jump(self, window, frame):
         self.image = self.idleSprite[self.direction]
-        self.draw(window, self.x, self.y + self.speedy)
+        self.draw(window, self.x, self.y -self.isJumping)
         self.image = self.jumpSprites[self.direction][frame]
         #print("Salto frame: " + str(frame))
         frame += 1
         if frame == 4:
             frame = 0
-        if (self.up()==True or self.down()==False):
-            self.x+=5
-            self.y+=5
-        else:
-            self.x+=5
-            self.y-=25
-        print (self.y)
-        return frame
+            self.isJumping+=1
+            if (self.y<=200):
+                self.isJumping=0
 
+
+        #if (self.up()==True or self.down()==False):
+        #    self.x+=5
+        #    self.y+=5
+        #else:
+         #   self.x+=5
+          #  self.y-=25
+        #print (self.y)
+        return frame
+    def downing(self, window, frame):
+        self.image = self.idleSprite[self.direction]
+        self.draw(window, self.x, self.y +self.isJumping)
+        self.image = self.jumpSprites[self.direction][frame]
+        #print("Salto frame: " + str(frame))
+        if(self.y>=310):
+            self.isJumping=0
+        else:
+            self.isJumping+=1
+           
     def up(self):
         bandera=False
         if (self.y<=200):
