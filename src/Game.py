@@ -4,7 +4,6 @@ from src.Player import Player
 import pygame
 from pygame.locals import *
 
-
 class Game:
     def __init__(self):
         print("Game")
@@ -35,6 +34,7 @@ class Game:
             pygame.time.delay(60)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
+            self.frame = 0
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     flag = False
@@ -141,5 +141,4 @@ class Game:
             self.isJump=True
             self.frame = self.player.jump(self.screen1, self.frame)
             
-            
-
+           

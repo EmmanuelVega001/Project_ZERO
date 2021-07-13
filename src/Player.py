@@ -208,6 +208,7 @@ class Player(Sprite):
     def movePlayer(self):
         self.x = 5
         self.y = 410
+        
     def movePlayer2(self):
         self.x=700
         self.y=410
