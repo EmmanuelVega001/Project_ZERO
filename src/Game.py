@@ -35,10 +35,10 @@ class Game:
             pygame.time.delay(60)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
-            if(self.player.isJumping and self.player.y >=210):
+            if(self.player.isJumping and self.player.y >=200):
                 self.player.y -= 25
                 self.frame = self.player.jump(self.screen1, self.frame)
-            elif(self.player.y<210 and not self.player.isJumping):
+            elif(self.player.y<310 and not self.player.isJumping):
                 self.player.y += 25
             else:
                 self.player.isJumping = False
