@@ -18,7 +18,7 @@ class Game:
     def createWindow(self):
         pygame.init()
         
-        size = 1200, 600
+        size = 1200, 500
 
         self.screen1 = pygame.display.set_mode(size)
 
@@ -35,10 +35,10 @@ class Game:
             pygame.time.delay(60)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
-            if(self.player.isJumping and self.player.y >= 330):
+            if(self.player.isJumping and self.player.y >=210):
                 self.player.y -= 25
                 self.frame = self.player.jump(self.screen1, self.frame)
-            elif(self.player.y<410 and not self.player.isJumping):
+            elif(self.player.y<210 and not self.player.isJumping):
                 self.player.y += 25
             else:
                 self.player.isJumping = False
@@ -58,10 +58,10 @@ class Game:
         self.highGrass = Sprite("./src/media/pasto-alto.png")
         self.arbol1=Sprite("./src/media/arbol1.png")
         self.background.draw(self.screen1, 0, 0)
-        self.arbol1.draw(self.screen1,180,50)
-        self.enemy.draw(self.screen1, 800, 410)
-        self.player.draw(self.screen1, 180, 410)
-        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,600))
+       # self.arbol1.draw(self.screen1,180,50)
+        #self.enemy.draw(self.screen1, 800, 310)
+        self.player.draw(self.screen1, 180, 310)
+        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,500))
         #self.highGrass.draw(self.screen1, 0, 0)
 
 
@@ -79,24 +79,24 @@ class Game:
     
     def drawSprites(self):
         self.background.draw(self.screen1, self.background.x, self.background.y)
-        self.arbol1.draw(self.screen1, self.arbol1.x, self.arbol1.y)
+       # self.arbol1.draw(self.screen1, self.arbol1.x, self.arbol1.y)
         self.player.draw(self.screen1, self.player.x, self.player.y)
-        self.enemy.draw(self.screen1, self.enemy.x, self.enemy.y)
-        self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
+        #self.enemy.draw(self.screen1, self.enemy.x, self.enemy.y)
+        #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
         
     def moveControls(self, event):
         if event.key == pygame.K_d:
             self.frame = self.player.moveRight(self.screen1, self.frame)
             if (self.player.x > 1200):
-                self.player.movePlayer(180, 410)
+                self.player.movePlayer(180, 310)
            
         elif event.key == pygame.K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
             if (self.player.x<5):
                 self.player.movePlayer2()
         elif  event.key == pygame.K_UP or event.key == pygame.K_w:
-            if(self.player.y == 410):
+            if(self.player.y == 310):
                 self.player.isJumping = True
             
 
