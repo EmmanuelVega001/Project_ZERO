@@ -66,8 +66,11 @@ class Game:
         #self.highGrass.draw(self.screen1, 0, 0)
 
     def movimientoEnemy(self):
+        Sprite.__init__(self, "./src/media/movimientosEnemigos/enemigo.png")
+        self.rect = self.image.get_rect()
         self.enemy.move(self.screen1)
-        self.speedx=5
+        self.speedx=10
+        
 
         
         

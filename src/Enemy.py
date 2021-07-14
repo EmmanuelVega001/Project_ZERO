@@ -7,7 +7,6 @@ class Enemy (Sprite):
         self.speedy = 0
         self.speedx = 5
         self.image = pygame.transform.scale(self.image, (400, 150))
-        self.rect= self.image.get_rect()
     
     def move(self, window):
         
