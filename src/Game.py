@@ -32,7 +32,7 @@ class Game:
         while flag:
             self.drawSprites()
             self.recargarPantalla()
-            pygame.time.delay(60)
+            pygame.time.delay(10)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
             if(self.player.isJumping and self.player.y >= 330):
