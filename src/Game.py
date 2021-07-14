@@ -90,13 +90,43 @@ class Game:
             self.frame = self.player.moveRight(self.screen1, self.frame)
             if (self.player.x > 1200):
                 self.player.movePlayer(180, 310)
-           
+        elif (event.key == pygame.K_a and event.key==pygame.K_w):
+            self.frame = self.player.moveLeft(self.screen1, self.frame)
+            if(self.player.y == 310):
+                self.player.isJumping = True
+            print("izquierda salto")
+
+
         elif event.key == pygame.K_a:
             self.frame = self.player.moveLeft(self.screen1, self.frame)
             if (self.player.x<5):
                 self.player.movePlayer2()
+
         elif  event.key == pygame.K_UP or event.key == pygame.K_w:
             if(self.player.y == 310):
                 self.player.isJumping = True
+
+        elif (event.key==pygame.K_w and event.key == pygame.K_d):
+            if(self.player.y == 310):
+                self.player.isJumping = True
+            self.frame = self.player.moveRight(self.screen1, self.frame)
+            print("a salto")
+        
+        elif (event.key == pygame.K_d and event.key==pygame.K_w):
+            self.frame = self.player.moveRight(self.screen1, self.frame)
+            if(self.player.y == 310):
+                self.player.isJumping = True
+            
+
+        
+        elif (event.key==pygame.K_w and event.key == pygame.K_a):
+            if(self.player.y == 310):
+                self.player.isJumping = True
+            self.frame = self.player.moveLeft(self.screen1, self.frame)
+        
+       
+            
+
+        
             
 
