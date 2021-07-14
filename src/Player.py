@@ -1,16 +1,16 @@
 from src.Sprite import Sprite
 
 import pygame
-
-
 class Player(Sprite):
     def __init__(self):
         Sprite.__init__(self, "./src/media/movimientosJugador/reposoDerecha.png")
+        
         self.image = pygame.transform.scale(self.image, (85, 132))
         print("Player")
         self.speedy = 0
         self.speedx = 5
         self.isJumping = 0
+        self.shoot=False
         self.idleSprite = [
             pygame.transform.scale(
                 pygame.image.load("./src/media/movimientosJugador/reposoDerecha.png"),
@@ -164,7 +164,7 @@ class Player(Sprite):
     def jump(self, window, frame):
         self.image = self.idleSprite[self.direction]
         self.draw(window, self.x, self.y + self.speedy)
-        self.image = self.jumpSprites[self.direction][frame]
+        self.image = self.jumpSprites[self.direction][frame]        
         print("Salto frame: " + str(frame))
         frame += 1
         if frame == 4:
