@@ -36,7 +36,7 @@ class Game:
             pygame.time.delay(10)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
-            
+            self.collision()
             if(self.player.isJumping and self.player.y >= 330):
                 self.player.y -= 25
                 self.frame = self.player.jump(self.screen1, self.frame)
@@ -77,11 +77,11 @@ class Game:
         x = 5
         y = 5
         self.persona=self.player.image.get_rect()
-        self.persona.top=y
-        self.persona.left=x
+        self.persona.top=self.player.y
+        self.persona.left=self.player.x
         self.enemigo=self.enemy.image.get_rect()
-        self.enemigo.top=y
-        self.enemigo.left=x
+        self.enemigo.top=self.enemy.y
+        self.enemigo.left=self.enemy.x
         if self.persona.colliderect(self.enemigo):
             print("Colision")
         else:
