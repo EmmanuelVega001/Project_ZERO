@@ -33,6 +33,7 @@ class Game:
             self.drawSprites()
             self.recargarPantalla()
             self.movimientoEnemy()
+            self.collideEnemy()
             pygame.time.delay(10)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
@@ -71,6 +72,11 @@ class Game:
         self.enemy.move(self.screen1)
         self.speedx=10
         
+    def collideEnemy(self):
+        self.rectpPlayer=self.player.image.get_rect()
+        colision=pygame.sprite.spritecollide(Enemy,Player)
+        if colision:
+            print("COLISONO ")    
 
         
         

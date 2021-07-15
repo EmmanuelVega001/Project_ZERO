@@ -12,6 +12,3 @@ class Enemy (Sprite):
         
         self.draw(window, self.x - self.speedx, self.y)
 
-    
-    
-
