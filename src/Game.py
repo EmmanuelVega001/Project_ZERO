@@ -31,11 +31,18 @@ class Game:
         self.frame = 0
         while flag:
             self.drawSprites()
+            self.collision()
             self.recargarPantalla()
-            pygame.time.delay(60)
+            self.movimientoEnemy()
+            pygame.time.delay(10)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
+<<<<<<< HEAD
             if(self.player.isJumping and self.player.y >=200):
+=======
+            
+            if(self.player.isJumping and self.player.y >= 330):
+>>>>>>> 78216067d5c1b9a7a94b0a101e83d38144630b9c
                 self.player.y -= 25
                 self.frame = self.player.jump(self.screen1, self.frame)
             elif(self.player.y<310 and not self.player.isJumping):
@@ -64,30 +71,65 @@ class Game:
         self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,500))
         #self.highGrass.draw(self.screen1, 0, 0)
 
+    def movimientoEnemy(self):
+        Sprite.__init__(self, "./src/media/movimientosEnemigos/enemigo.png")
+        self.rect = self.image.get_rect()
+        self.enemy.move(self.screen1)
+        self.speedx=10
+        
+        
+    def collision(self):
+        x = 5
+        y = 5
+        self.persona=self.player.image.get_rect()
+        self.persona.top=y
+        self.persona.left=x
+        self.enemigo=self.enemy.image.get_rect()
+        self.enemigo.top=y
+        self.enemigo.left=x
+
+        if self.persona.colliderect(self.enemigo):
+            print("Colision")
+        else:
+            print("No colision")
+
+    
+        
+        
 
     def recargarPantalla(self):
         #para hacer que el fondo se "mueva"
+        
         x_relativa=self.x % self.highGrass.image.get_rect().width
         #self.screen1.blit(self.background.image,(x_relativa-self.background.image.get_rect().width,0))
         self.screen1.blit(self.highGrass.image,(x_relativa-self.highGrass.image.get_rect().width,0))
+        
+
         if x_relativa-600:
          #   self.screen1.blit(self.background.image,(x_relativa,0))
             self.screen1.blit(self.highGrass.image,(x_relativa,0))
-           
         self.x-=3
         pygame.display.update()
     
     def drawSprites(self):
         self.background.draw(self.screen1, self.background.x, self.background.y)
+<<<<<<< HEAD
        # self.arbol1.draw(self.screen1, self.arbol1.x, self.arbol1.y)
         self.player.draw(self.screen1, self.player.x, self.player.y)
         #self.enemy.draw(self.screen1, self.enemy.x, self.enemy.y)
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
+=======
+        self.arbol1.draw(self.screen1, self.arbol1.x, self.arbol1.y)
+        self.enemy.draw(self.screen1, self.enemy.x, self.enemy.y)
+        self.player.draw(self.screen1, self.player.x, self.player.y)
+        self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
+>>>>>>> 78216067d5c1b9a7a94b0a101e83d38144630b9c
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
-        
     def moveControls(self, event):
         if event.key == pygame.K_d:
+
             self.frame = self.player.moveRight(self.screen1, self.frame)
+            
             if (self.player.x > 1200):
                 self.player.movePlayer(180, 310)
         elif (event.key == pygame.K_a and event.key==pygame.K_w):
