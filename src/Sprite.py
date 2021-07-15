@@ -7,7 +7,7 @@ class Sprite(pygame.sprite.Sprite):
         self.x = 0
         self.y = 0
         self.image = pygame.image.load(src)
-        print("Sprite cargado: " + src)
+        #print("Sprite cargado: " + src)
         
     #Actualizar * Ticks
     def draw(self, window, x, y):

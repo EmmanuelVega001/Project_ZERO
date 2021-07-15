@@ -31,12 +31,13 @@ class Game:
         self.frame = 0
         while flag:
             self.drawSprites()
+            self.collision()
             self.recargarPantalla()
             self.movimientoEnemy()
-            self.collideEnemy()
             pygame.time.delay(10)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
+            
             if(self.player.isJumping and self.player.y >= 330):
                 self.player.y -= 25
                 self.frame = self.player.jump(self.screen1, self.frame)
@@ -72,11 +73,25 @@ class Game:
         self.enemy.move(self.screen1)
         self.speedx=10
         
-    def collideEnemy(self):
-        self.rectpPlayer=self.player.image.get_rect()
+        
+    def collision(self):
+        x = 5
+        y = 5
+        self.persona=self.player.image.get_rect()
+        self.persona.top=y
+        self.persona.left=x
+        self.enemigo=self.enemy.image.get_rect()
+        self.enemigo.top=y
+        self.enemigo.left=x
+        colision=pygame.sprite.spritecollide(self.enemy,self.player,False)
+        if colision:
+            print("colisionsota")
+        if self.persona.colliderect(self.enemigo):
+            print("Colision")
+        else:
+            print("No colision")
 
-
-
+    
         
         
 
