@@ -7,6 +7,7 @@ class Player(Sprite):
         
         self.image = pygame.transform.scale(self.image, (85, 132))
         print("Player")
+        self.vidas = 1000
         self.speedy = 0
         self.speedx = 5
         self.isJumping = 0
