@@ -176,4 +176,4 @@ class Player(Sprite):
         self.y = 310
     def movePlayer2(self):
         self.x=1100
-        self.y=410
+        self.y=310
