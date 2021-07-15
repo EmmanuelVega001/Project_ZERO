@@ -62,7 +62,7 @@ class Game:
         self.arbol1=Sprite("./src/media/arbol1.png")
         self.background.draw(self.screen1, 0, 0)
        # self.arbol1.draw(self.screen1,180,50)
-        #self.enemy.draw(self.screen1, 800, 310)
+        self.enemy.draw(self.screen1, 800, 310)
         self.player.draw(self.screen1, 180, 310)
         self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,500))
         #self.highGrass.draw(self.screen1, 0, 0)
@@ -89,7 +89,6 @@ class Game:
         else:
             print("No colision")
 
-    
         
         
 
