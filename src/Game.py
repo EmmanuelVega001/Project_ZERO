@@ -74,9 +74,8 @@ class Game:
         
     def collideEnemy(self):
         self.rectpPlayer=self.player.image.get_rect()
-        colision=pygame.sprite.spritecollide(Enemy,Player)
-        if colision:
-            print("COLISONO ")    
+
+
 
         
         
