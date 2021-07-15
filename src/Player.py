@@ -165,11 +165,7 @@ class Player(Sprite):
         self.image = self.idleSprite[self.direction]
         self.draw(window, self.x, self.y + self.speedy)
         self.image = self.jumpSprites[self.direction][frame]        
-<<<<<<< HEAD
        # print("Salto frame: " + str(frame))
-=======
-        #print("Salto frame: " + str(frame))
->>>>>>> 78216067d5c1b9a7a94b0a101e83d38144630b9c
         frame += 1
         if frame == 4:
             frame = 0
@@ -180,10 +176,6 @@ class Player(Sprite):
         self.y = 310
     def movePlayer2(self):
         self.x=1100
-<<<<<<< HEAD
         self.y=310
 
 
-=======
-        self.y=410
->>>>>>> 78216067d5c1b9a7a94b0a101e83d38144630b9c

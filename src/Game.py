@@ -37,12 +37,7 @@ class Game:
             pygame.time.delay(10)
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
-<<<<<<< HEAD
             if(self.player.isJumping and self.player.y >=200):
-=======
-            
-            if(self.player.isJumping and self.player.y >= 330):
->>>>>>> 78216067d5c1b9a7a94b0a101e83d38144630b9c
                 self.player.y -= 25
                 self.frame = self.player.jump(self.screen1, self.frame)
             elif(self.player.y<310 and not self.player.isJumping):
@@ -113,17 +108,10 @@ class Game:
     
     def drawSprites(self):
         self.background.draw(self.screen1, self.background.x, self.background.y)
-<<<<<<< HEAD
        # self.arbol1.draw(self.screen1, self.arbol1.x, self.arbol1.y)
         self.player.draw(self.screen1, self.player.x, self.player.y)
         #self.enemy.draw(self.screen1, self.enemy.x, self.enemy.y)
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
-=======
-        self.arbol1.draw(self.screen1, self.arbol1.x, self.arbol1.y)
-        self.enemy.draw(self.screen1, self.enemy.x, self.enemy.y)
-        self.player.draw(self.screen1, self.player.x, self.player.y)
-        self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
->>>>>>> 78216067d5c1b9a7a94b0a101e83d38144630b9c
         #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
     def moveControls(self, event):
         if event.key == pygame.K_d:
