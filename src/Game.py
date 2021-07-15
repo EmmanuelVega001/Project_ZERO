@@ -61,11 +61,11 @@ class Game:
         self.highGrass = Sprite("./src/media/pasto-alto.png")
         self.arbol1=Sprite("./src/media/arbol1.png")
         self.background.draw(self.screen1, 0, 0)
-       # self.arbol1.draw(self.screen1,180,50)
+        self.arbol1.draw(self.screen1,70,110)
         self.enemy.draw(self.screen1, 800, 310)
         self.player.draw(self.screen1, 180, 310)
         self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,500))
-        #self.highGrass.draw(self.screen1, 0, 0)
+        self.highGrass.draw(self.screen1, 0, 0)
 
     def movimientoEnemy(self):
         Sprite.__init__(self, "./src/media/movimientosEnemigos/enemigo.png")
@@ -101,7 +101,7 @@ class Game:
         
 
         if x_relativa-600:
-         #   self.screen1.blit(self.background.image,(x_relativa,0))
+        #   self.screen1.blit(self.background.image,(x_relativa,0))
             self.screen1.blit(self.highGrass.image,(x_relativa,0))
         self.x-=3
         pygame.display.update()
@@ -119,7 +119,7 @@ class Game:
         self.fuente = pygame.font.Font(None, 40)
         self.mensaje = self.fuente.render(self.marcador, 1, rojo)
         self.screen1.blit(self.mensaje, (1100,30))
-        #self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
+        self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
 
     def moveControls(self, event):
         if event.key == pygame.K_d:
