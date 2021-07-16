@@ -130,15 +130,6 @@ class Player(Sprite):
             ],
         ]
         self.direction = 0
-        # self.frames = [
-        #     [
-        #         pygame.Rect((0,  0, 60,  90)),
-        #         pygame.Rect((90, 0, 90, 90)),
-        #         pygame.Rect((0, 90, 60, 90)),
-        #         pygame.Rect((90, 90,  90 , 90 ))
-        #     ]
-        # ]
-
     def moveLeft(self, window, frame):
         self.image = self.idleSprite[1]
         self.draw(window, self.x - self.speedx, self.y)
