@@ -36,7 +36,7 @@ class Game:
             pygame.display.flip()
             pygame.key.set_repeat(60, 30)
             self.enemy.move(self.screen1)
-            if(self.player.isJumping and self.player.y >= 210):
+            if(self.player.isJumping and self.player.y >= 150):
                 self.player.y -= 25
                 self.frame = self.player.jump(self.screen1, self.frame)
             elif(self.player.y<310 and not self.player.isJumping):
@@ -61,13 +61,12 @@ class Game:
         self.background.draw(self.screen1, 0, 0)
         #self.arbol1.draw(self.screen1,180,50)
         self.player.draw(self.screen1, 180, 310)
-        self.enemy.draw(self.screen1, 800, 330)
+        self.enemy.draw(self.screen1, 800, 310)
         self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,500))
         # self.highGrass.draw(self.screen1, 0, 0)
         
     def collision(self):
-        x = 5
-        y = 5
+
         self.persona=self.player.image.get_rect()
         self.persona.top=self.player.y
         self.persona.left=self.player.x
