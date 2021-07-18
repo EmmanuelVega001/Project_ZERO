@@ -21,10 +21,10 @@ class Game:
         self.enemy=Enemy()
         self.apple=Apple()
         print(os.getcwd())
-        self.dolor1=pygame.mixer.Sound("./src/media/dolor.mp3")
-        self.yea=pygame.mixer.Sound("./src/media/yea.mp3")
-        self.yea2=pygame.mixer.Sound("./src/media/yea2.mp3")
-        self.dolor2=pygame.mixer.Sound("./src/media/dolor2.mp3")
+        self.dolor1=pygame.mixer.Sound("./src/media/dolor.wav")
+        self.yea=pygame.mixer.Sound("./src/media/yea.wav")
+        self.yea2=pygame.mixer.Sound("./src/media/yea2.wav")
+        self.dolor2=pygame.mixer.Sound("./src/media/dolor2.wav")
         self.x=0
         self.contador=1
         self.derecha=False
@@ -36,7 +36,7 @@ class Game:
 
     def createWindow(self):
         
-        pygame.mixer.music.load("./src/media/Musica_Fondo.mp3")
+        pygame.mixer.music.load("./src/media/Musica_Fondo.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.05)
         size = 1200, 490
@@ -48,6 +48,7 @@ class Game:
 
         pygame.display.set_icon(self.icon)
         flag = True
+        self.song = 1
         self.setSprites()
         self.frame = 0
         while flag:
@@ -107,7 +108,6 @@ class Game:
         
         self.enemigo.top=self.enemy.y
         self.enemigo.left=self.enemy.x
-
         if self.persona.colliderect(self.enemigo):
             if self.derecha==False:
                 if self.contador>=100:
@@ -120,7 +120,7 @@ class Game:
                     self.contador+=10
             else:
                 if self.contador>=100:
-                    self.player.puntosVida -= 1
+                    self.player.puntosVida   -= 1
                     self.contador=0
                     self.dolor2.play()
                     self.setEnemyLeft()
@@ -131,18 +131,18 @@ class Game:
         self.manzana.left=self.apple.x
 
         if self.persona.colliderect(self.manzana):
-            if self.contador==1:
+            if self.song==1:
                 self.player.puntosVida += 1
                 self.yea.play()
                 self.setManzana()
-                self.contador=0
-                print(self.contador)
-            elif self.contador==0:
+                self.song=0
+                print(self.song)
+            else:
                 self.player.puntosVida += 1
                 self.yea2.play()
                 self.setManzana()
-                self.contador=1
-                print(self.contador)
+                self.song=1
+                print(self.song)
     def drawSprites(self):
         rojo = 255, 0, 0
         self.background.draw(self.screen1,self.background.x,self.background.y)
