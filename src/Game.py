@@ -55,7 +55,7 @@ class Game:
             pygame.key.set_repeat(60, 30)
             self.enemy.move(self.screen1,self.derecha)
             self.apple.move(self.screen1)
-            if(self.player.isJumping and self.player.y >= 210):
+            if(self.player.isJumping and self.player.y >= 110):
                 self.player.y -= 25
                 self.frame = self.player.jump(self.screen1, self.frame)
             elif(self.player.y<310 and not self.player.isJumping):
