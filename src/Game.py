@@ -9,15 +9,18 @@ import pygame
 import random
 from pygame.locals import *
 
+import os
 
 class Game:
     def __init__(self):
         pygame.init()
+        pygame.mixer.init()
         print("Game")
         self.contador=0
         self.player = Player()
         self.enemy=Enemy()
         self.apple=Apple()
+        print(os.getcwd())
         self.dolor1=pygame.mixer.Sound("./src/media/dolor.mp3")
         self.yea=pygame.mixer.Sound("./src/media/yea.mp3")
         self.yea2=pygame.mixer.Sound("./src/media/yea2.mp3")
@@ -81,15 +84,6 @@ class Game:
         self.background.draw(self.screen1, 0, 0)
         #self.arbol1.draw(self.screen1,180,50)
         self.player.draw(self.screen1, 180, 310)
-<<<<<<< HEAD
-        self.enemy.draw(self.screen1, 800, 310)
-        self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1600,500))
-        # self.highGrass.draw(self.screen1, 0, 0)
-        
-    def collision(self):
-
-        self.persona=self.player.image.get_rect()
-=======
         self.enemy.draw(self.screen1, 800, 330)
         self.apple.draw(self.screen1,numero_random,-20)
         self.highGrass.image = pygame.transform.scale(self.highGrass.image, (1300,490))
@@ -108,7 +102,6 @@ class Game:
         
     def collision(self):
        
->>>>>>> 6f928c0bcff0ca178b7ac85ecc360533321f1989
         self.persona.top=self.player.y
         self.persona.left=self.player.x
         
@@ -150,13 +143,6 @@ class Game:
                 self.setManzana()
                 self.contador=1
                 print(self.contador)
-
-            
-
-        
-            
-        
-    
     def drawSprites(self):
         rojo = 255, 0, 0
         self.background.draw(self.screen1,self.background.x,self.background.y)
