@@ -47,11 +47,11 @@ class Game:
         self.icon = pygame.image.load("./src/media/icono.png")
 
         pygame.display.set_icon(self.icon)
-        flag = True
+        self.flag = True
         self.song = 1
         self.setSprites()
         self.frame = 0
-        while flag:
+        while self.flag:
             self.collision()
             self.drawSprites()
             pygame.time.delay(10)
@@ -69,7 +69,7 @@ class Game:
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    flag = False
+                    self.flag = False
                 elif event.type == pygame.KEYDOWN:
                     self.moveControls(event)
                 elif event.type == pygame.KEYUP:
@@ -112,6 +112,7 @@ class Game:
             if self.derecha==False:
                 if self.contador>=100:
                     self.player.puntosVida -= 1
+                    if self.player.puntosVida<=0: self.flag = False
                     self.contador=0
                     self.dolor1.play()
                     self.setEnemyLeft()
@@ -121,6 +122,7 @@ class Game:
             else:
                 if self.contador>=100:
                     self.player.puntosVida   -= 1
+                    if self.player.puntosVida<=0: self.flag = False
                     self.contador=0
                     self.dolor2.play()
                     self.setEnemyLeft()
@@ -132,13 +134,13 @@ class Game:
 
         if self.persona.colliderect(self.manzana):
             if self.song==1:
-                self.player.puntosVida += 1
+                self.player.puntos += 1
                 self.yea.play()
                 self.setManzana()
                 self.song=0
                 print(self.song)
             else:
-                self.player.puntosVida += 1
+                self.player.puntos+= 1
                 self.yea2.play()
                 self.setManzana()
                 self.song=1
@@ -154,11 +156,18 @@ class Game:
       
         self.highGrass.draw(self.screen1, self.highGrass.x, self.highGrass.y)
 
-
+        
         self.marcador = str(self.player.puntosVida)
+        self.puntos = str(self.player.puntos)
+        self.palabra="Puntos de vida: "+self.marcador
         self.fuente = pygame.font.Font(None, 40)
-        self.mensaje = self.fuente.render("Puntos de vida: "+self.marcador, 1, rojo)
+        self.mensaje = self.fuente.render(self.palabra, 1, rojo)
+
+        self.palabra2="Puntos: "+self.puntos
+        self.mensaje2= self.fuente.render(self.palabra2, 1, rojo)
+
         self.screen1.blit(self.mensaje, (800,30))
+        self.screen1.blit(self.mensaje2, (800,60))
         
 
 

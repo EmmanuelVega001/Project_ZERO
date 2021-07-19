@@ -131,6 +131,7 @@ class Player(Sprite):
         ]
         self.direction = 0
         self.puntosVida=3
+        self.puntos=0
     def moveLeft(self, window, frame):
         self.image = self.idleSprite[1]
         self.draw(window, self.x - self.speedx, self.y)
